@@ -6,7 +6,7 @@ services:
     # Imagem base do container
     image: node:16
     # Nome do container para facilitar execução
-    container_name: XP_Investimentos
+    container_name: XP_Investimentos_dev
     # Mesmo que `docker run -t`
     tty: true
     # Mesmo que `docker run -i`
@@ -30,24 +30,24 @@ services:
     # na notação porta_de_fora:porta_de_dentro
     ports:
       # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
-      - 3000:3000
+      - 3010:3010
     # Configura as variáveis de ambiente dentro do container
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       MYSQL_HOST: db # Nome do service logo abaixo
-      PORT: '3000'
+      PORT: '3010'
 
   # Serviço que irá rodar o banco de dados
   db:
-    container_name: XP_Investimentos_db
+    container_name: XP_Investimentos_db_dev
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
       # Garanta que não haverá conflitos de porta com um banco que esteja
       # rodando localmente
-      - 3306:3306
+      - 3310:3310
 
 # Lista de redes que os containeres irão utilizar
 networks:

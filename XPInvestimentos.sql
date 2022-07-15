@@ -28,11 +28,12 @@ INSERT INTO XPInvestimentos.ativo (nome, valor, date) VALUES
     ("POST3 - Posto de combustível", 100.50, NOW());
 
 CREATE TABLE deposito (
+    codCliente INT NOT NULL,
+    valor DECIMAL NOT NULL,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
-        ON DELETE CASCADE,
-    valor DECIMAL NOT NULL,
-    date DATETIME DEFAULT CURRENT_TIMESTAMP
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.deposito (codCliente, valor, date) VALUES
@@ -41,11 +42,12 @@ INSERT INTO XPInvestimentos.deposito (codCliente, valor, date) VALUES
     (3, 100.000, NOW());
 
 CREATE TABLE saque (
+    codCliente INT NOT NULL,
+    valor DECIMAL NOT NULL,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
-        ON DELETE CASCADE,
-    valor DECIMAL NOT NULL,
-    date DATETIME DEFAULT CURRENT_TIMESTAMP
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.saque (codCliente, valor, date) VALUES
@@ -54,14 +56,16 @@ INSERT INTO XPInvestimentos.saque (codCliente, valor, date) VALUES
     (3, 50.000, NOW());
 
 CREATE TABLE comprar (
+    codCliente INT NOT NULL,
+    codAtivo INT NOT NULL,
+    qtdeAtivo INT NOT NULL,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
         ON DELETE CASCADE,
     FOREIGN KEY (codAtivo)
         REFERENCES ativo (codAtivo)
-        ON DELETE CASCADE,
-    qtdeAtivo INT NOT NULL,
-    date DATETIME DEFAULT CURRENT_TIMESTAMP
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.comprar(codCliente, codAtivo, qtdeAtivo, date) VALUES
@@ -70,14 +74,16 @@ INSERT INTO XPInvestimentos.comprar(codCliente, codAtivo, qtdeAtivo, date) VALUE
     (3, 3, 10, NOW());
 
 CREATE TABLE vender (
+    codCliente INT NOT NULL,
+    codAtivo INT NOT NULL,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
         ON DELETE CASCADE,
     FOREIGN KEY (codAtivo)
         REFERENCES ativo (codAtivo)
         ON DELETE CASCADE,
-    qtdeAtivo INT NOT NULL,
-    date DATETIME DEFAULT CURRENT_TIMESTAMP
+    qtdeAtivo INT NOT NULL
 )  ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.vender(codCliente, codAtivo, qtdeAtivo, date) VALUES

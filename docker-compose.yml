@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 
 services:
   # Serviço que irá rodar o node
@@ -6,7 +6,7 @@ services:
     # Imagem base do container
     image: node:16
     # Nome do container para facilitar execução
-    container_name: store_manager
+    container_name: XP_Investimentos
     # Mesmo que `docker run -t`
     tty: true
     # Mesmo que `docker run -i`
@@ -40,7 +40,7 @@ services:
 
   # Serviço que irá rodar o banco de dados
   db:
-    container_name: store_manager_db
+    container_name: XP_Investimentos_db
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: 'password'

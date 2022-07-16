@@ -4,28 +4,29 @@ USE XPInvestimentos;
 
 CREATE TABLE cliente (
     codCliente INT NOT NULL auto_increment,
-    nome VARCHAR(30) NOT NULL,
+    nomeCliente VARCHAR(30) NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(codCliente)
 ) ENGINE=INNODB;
 
-INSERT INTO XPInvestimentos.cliente (nome, date) VALUES
+INSERT INTO XPInvestimentos.cliente (nomeCliente, date) VALUES
     ("Mariana Groppa", NOW()),
     ("Ana K Melo", NOW()),
     ("Clara Sodré", NOW());
 
 CREATE TABLE ativo (
     codAtivo INT NOT NULL auto_increment,
-    nome VARCHAR(30) NOT NULL,
+    nomeAtivo VARCHAR(30) NOT NULL,
     valor DECIMAL NOT NULL,
+    qtdeAtivo INT NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(codAtivo)
 ) ENGINE=INNODB;
 
-INSERT INTO XPInvestimentos.ativo (nome, valor, date) VALUES
-    ("SPMKT3 - Supermercado", 100.50, NOW()),
-    ("PET4 - Petshop", 25.49, NOW()),
-    ("POST3 - Posto de combustível", 100.50, NOW());
+INSERT INTO XPInvestimentos.ativo (nomeAtivo, valor, qtdeAtivo, date) VALUES
+    ("SPMKT3 - Supermercado", 100.50, 100, NOW()),
+    ("PET4 - Petshop", 25.49, 100, NOW()),
+    ("POST3 - Posto de combustível", 100.50, 100, NOW());
 
 CREATE TABLE deposito (
     codCliente INT NOT NULL,
@@ -38,7 +39,7 @@ CREATE TABLE deposito (
 
 INSERT INTO XPInvestimentos.deposito (codCliente, valor, date) VALUES
     (1, 100.000, NOW()),
-    (2, 100.00, NOW()),
+    (2, 100.000, NOW()),
     (3, 100.000, NOW());
 
 CREATE TABLE saque (

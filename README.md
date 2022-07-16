@@ -3,7 +3,7 @@
 `Rodar a aplicação:`
 
 npm run debug
-Gerar o BD XPInvestimentos via workbench via sql script com as credenciais do .env
+Gerar o BD XPInvestimentos via workbench com sql script com as credenciais do .env
 Fazer as requisições nas rotas
 
 **Solução para o erro: "unknown database"**

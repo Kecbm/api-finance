@@ -13,6 +13,16 @@ const comprar = async (body) => {
     [codAtivo],
   );
 
+  const [valorAtivo] = await connection.execute(
+    'SELECT valor FROM XPInvestimentos.ativo WHERE codAtivo = ?',
+    [codAtivo],
+  );
+
+  await connection.execute(
+    `UPDATE XPInvestimentos.cliente SET saldoDisponivel = saldoDisponivel - ${qtdeAtivo * valorAtivo[0].valor} WHERE codCliente = ?`,
+    [codCliente],
+  );
+
   return `Parabéns cliente ${codCliente}, você acabou de comprar ${qtdeAtivo} unidades da ação ${codAtivo}`;
 };
 

@@ -4,9 +4,9 @@ const ativoService = require('../services/ativoService');
 const comprar = async (body) => {
   const { codAtivo, qtdeAtivo } = body;
 
-  const quantidadeDisponivel = await ativoService.quantity(codAtivo);
+  const [quantidadeDisponivel] = await ativoService.quantity(codAtivo);
 
-  if (quantidadeDisponivel > qtdeAtivo) {
+  if (qtdeAtivo > quantidadeDisponivel.qtdeAtivo) {
     return;
   }
 

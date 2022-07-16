@@ -11,9 +11,9 @@ CREATE TABLE cliente (
 ) ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.cliente (nomeCliente, saldoDisponivel, date) VALUES
-    ("Mariana Groppa", 100.000, NOW()),
-    ("Ana K Melo", 100.000, NOW()),
-    ("Clara Sodré", 100.000, NOW());
+    ("Mariana Groppa", 1000, NOW()),
+    ("Ana K Melo", 1000, NOW()),
+    ("Clara Sodré", 1000, NOW());
 
 CREATE TABLE ativo (
     codAtivo INT NOT NULL auto_increment,
@@ -25,9 +25,9 @@ CREATE TABLE ativo (
 ) ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.ativo (nomeAtivo, valor, qtdeAtivo, date) VALUES
-    ("SPMKT3 - Supermercado", 100.50, 100, NOW()),
-    ("PET4 - Petshop", 25.49, 100, NOW()),
-    ("POST3 - Posto de combustível", 100.50, 100, NOW());
+    ("SPMKT3 - Supermercado", 50, 100, NOW()),
+    ("PET4 - Petshop", 25, 100, NOW()),
+    ("POST3 - Posto de combustível", 100, 100, NOW());
 
 CREATE TABLE deposito (
     codCliente INT NOT NULL,
@@ -39,9 +39,9 @@ CREATE TABLE deposito (
 )  ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.deposito (codCliente, valor, date) VALUES
-    (1, 100.000, NOW()),
-    (2, 100.000, NOW()),
-    (3, 100.000, NOW());
+    (1, 1000, NOW()),
+    (2, 1000, NOW()),
+    (3, 1000, NOW());
 
 CREATE TABLE saque (
     codCliente INT NOT NULL,
@@ -53,9 +53,9 @@ CREATE TABLE saque (
 )  ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.saque (codCliente, valor, date) VALUES
-    (1, 50.00, NOW()),
-    (2, 50.00, NOW()),
-    (3, 50.000, NOW());
+    (1, 50, NOW()),
+    (2, 50, NOW()),
+    (3, 50, NOW());
 
 CREATE TABLE comprar (
     codCliente INT NOT NULL,

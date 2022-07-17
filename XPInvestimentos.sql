@@ -12,10 +12,10 @@ CREATE TABLE cliente (
     PRIMARY KEY(codCliente)
 ) ENGINE=INNODB;
 
-INSERT INTO XPInvestimentos.cliente (nomeCliente, saldoDisponivel, date) VALUES
+INSERT INTO XPInvestimentos.cliente (nomeCliente, saldoDisponivel, atvCarteira, qtdeCarteira, date) VALUES
     ("Mariana Groppa", 1000, 1, 10, NOW()),
-    ("Ana K Melo", 1000, 1, 10 NOW()),
-    ("Clara Sodré", 1000, 1, 10 NOW());
+    ("Ana K Melo", 1000, 1, 10, NOW()),
+    ("Clara Sodré", 1000, 1, 10, NOW());
 
 CREATE TABLE ativo (
     codAtivo INT NOT NULL auto_increment,

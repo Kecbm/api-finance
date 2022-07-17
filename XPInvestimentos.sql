@@ -6,17 +6,14 @@ CREATE TABLE cliente (
     codCliente INT NOT NULL auto_increment,
     nomeCliente VARCHAR(30) NOT NULL,
     saldoDisponivel DECIMAL NOT NULL,
-    atvCarteira INT NOT NULL,
-    qtdeCarteira INT NOT NULL,
-    saldoCarteira INT NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(codCliente)
 ) ENGINE=INNODB;
 
-INSERT INTO XPInvestimentos.cliente (nomeCliente, saldoDisponivel, atvCarteira, qtdeCarteira, saldoCarteira, date) VALUES
-    ("Mariana Groppa", 1000, 1, 10, 500, NOW()),
-    ("Ana K Melo", 1000, 1, 10, 500, NOW()),
-    ("Clara Sodré", 1000, 1, 10, 500, NOW());
+INSERT INTO XPInvestimentos.cliente (nomeCliente, saldoDisponivel, date) VALUES
+    ("Mariana Groppa", 1000, NOW()),
+    ("Ana K Melo", 1000, NOW()),
+    ("Clara Sodré", 1000, NOW());
 
 CREATE TABLE ativo (
     codAtivo INT NOT NULL auto_increment,

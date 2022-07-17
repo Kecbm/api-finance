@@ -15,6 +15,13 @@ const comprar = async (body) => {
   return novaCompra;
 };
 
+const vender = async (body) => {
+  const novaVenda = await investimentosModel.vender(body);
+
+  return novaVenda;
+};
+
 module.exports = {
   comprar,
+  vender,
 };

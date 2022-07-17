@@ -23,7 +23,12 @@ const comprar = async (body) => {
     [codCliente],
   );
 
-  return `Parabéns cliente ${codCliente}, você acabou de comprar ${qtdeAtivo} unidades da ação ${codAtivo}`;
+  const [nomeCliente] = await connection.execute(
+    'SELECT nomeCliente FROM XPInvestimentos.cliente WHERE codCliente = ?',
+    [codCliente],
+  );
+
+  return `Olá ${nomeCliente[0].nomeCliente}, você acabou de comprar ${qtdeAtivo} unidades da ação ${codAtivo}`;
 };
 
 module.exports = {

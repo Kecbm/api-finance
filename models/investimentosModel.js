@@ -33,6 +33,11 @@ const comprar = async (body) => {
     [codAtivo],
   );
 
+  await connection.execute(
+    `UPDATE XPInvestimentos.carteira SET qtdeAtivo = qtdeAtivo + ${qtdeAtivo} WHERE codAtivo = ? AND codCliente = ?`,
+    [codAtivo, codCliente],
+  );
+
   return `Olá ${nomeCliente[0].nomeCliente}, você acabou de comprar ${qtdeAtivo} unidades da ação ${nomeAtivo[0].nomeAtivo}`;
 };
 

@@ -16,6 +16,14 @@ const comprar = async (body) => {
 };
 
 const vender = async (body) => {
+  const { codAtivo, qtdeAtivo, codCliente } = body;
+
+  const [quantidadeCarteira] = await ativoService.carteira(codCliente, codAtivo);
+
+  if (qtdeAtivo > quantidadeCarteira.qtdeAtivo) {
+    return;
+  }
+
   const novaVenda = await investimentosModel.vender(body);
 
   return novaVenda;

@@ -13,6 +13,10 @@ const comprar = async (req, res) => {
 const vender = async (req, res) => {
   const novaVenda = await investimentosService.vender(req.body);
 
+  if (!novaVenda) {
+    return res.status(404).json({ message: 'ERRO: Sua carteira não possui essa essa quantidade do ativo. Verifique a quantidade disponível em sua carteira e tente novamente' });
+  }
+
   return res.status(201).json(novaVenda);
 };
 

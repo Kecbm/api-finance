@@ -12,7 +12,14 @@ const carteira = async (id, codAtivo) => {
   return quantidade;
 };
 
+const getByClient = async (id) => {
+  const client = await ativoModel.getByClient(id);
+
+  return client;
+};
+
 module.exports = {
   quantity,
   carteira,
+  getByClient,
 };

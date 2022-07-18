@@ -17,7 +17,16 @@ const carteira = async (req, res) => {
   res.status(200).json(...quantidade);
 };
 
+const getByClient = async (req, res) => {
+  const { id } = req.params;
+
+  const client = await ativoService.getByClient(Number(id));
+
+  res.status(200).json(client);
+};
+
 module.exports = {
   quantity,
   carteira,
+  getByClient,
 };

@@ -1,4 +1,3 @@
-const { array } = require('joi');
 const connection = require('../db');
 
 const quantity = async (id) => {

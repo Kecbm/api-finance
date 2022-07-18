@@ -99,4 +99,28 @@ INSERT INTO XPInvestimentos.vender(codCliente, codAtivo, qtdeAtivo, date) VALUES
     (2, 2, 5, NOW()),
     (3, 3, 5, NOW());
 
+CREATE TABLE carteira (
+codCliente INT NOT NULL,
+codAtivo INT NOT NULL,
+qtdeAtivo INT NOT NULL,
+date DATETIME DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (codCliente)
+    REFERENCES cliente (codCliente)
+    ON DELETE CASCADE,
+FOREIGN KEY (codAtivo)
+    REFERENCES ativo (codAtivo)
+    ON DELETE CASCADE
+)  ENGINE=INNODB;
+
+INSERT INTO XPInvestimentos.carteira(codCliente, codAtivo, qtdeAtivo, date) VALUES
+(1, 1, 20, NOW()),
+(1, 2, 20, NOW()),
+(1, 3, 20, NOW()),
+(2, 1, 20, NOW()),
+(2, 2, 20, NOW()),
+(2, 3, 20, NOW()),
+(3, 1, 20, NOW()),
+(3, 2, 20, NOW()),
+(3, 3, 20, NOW());
+
 SET SQL_SAFE_UPDATES = 0;

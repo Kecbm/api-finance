@@ -11,7 +11,7 @@ const quantity = async (id) => {
 
 const carteira = async (id, codAtivo) => {
   const [quantidade] = await connection.execute(
-    'SELECT qtdeAtivo FROM XPInvestimentos.comprar WHERE codCliente = ? AND codAtivo = ?',
+    'SELECT qtdeAtivo FROM XPInvestimentos.carteira WHERE codCliente = ? AND codAtivo = ?',
     [id, codAtivo],
   );
 

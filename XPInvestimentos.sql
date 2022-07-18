@@ -72,20 +72,26 @@ CREATE TABLE comprar (
 
 INSERT INTO XPInvestimentos.comprar(codCliente, codAtivo, qtdeAtivo, date) VALUES
     (1, 1, 10, NOW()),
+    (1, 2, 10, NOW()),
+    (1, 3, 10, NOW()),
+    (2, 1, 10, NOW()),
     (2, 2, 10, NOW()),
+    (2, 3, 10, NOW()),
+    (3, 1, 10, NOW()),
+    (3, 2, 10, NOW()),
     (3, 3, 10, NOW());
 
 CREATE TABLE vender (
     codCliente INT NOT NULL,
     codAtivo INT NOT NULL,
+    qtdeAtivo INT NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
         ON DELETE CASCADE,
     FOREIGN KEY (codAtivo)
         REFERENCES ativo (codAtivo)
-        ON DELETE CASCADE,
-    qtdeAtivo INT NOT NULL
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.vender(codCliente, codAtivo, qtdeAtivo, date) VALUES

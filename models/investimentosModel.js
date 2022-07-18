@@ -69,6 +69,11 @@ const vender = async (body) => {
     [codAtivo],
   );
 
+  await connection.execute(
+    `UPDATE XPInvestimentos.comprar SET qtdeAtivo = qtdeAtivo - ${qtdeAtivo} WHERE codCliente = ?`,
+    [codCliente],
+  );
+
   return `Olá ${nomeCliente[0].nomeCliente}, você acabou de vender ${qtdeAtivo} unidades da ação ${nomeAtivo[0].nomeAtivo}`;
 };
 

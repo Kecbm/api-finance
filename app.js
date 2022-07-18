@@ -12,7 +12,7 @@ app.get('/', (_request, response) => {
 
 app.use(express.json());
 app.use('/investimentos', investimentosRoutes);
-app.use('/ativo', ativoRoutes);
+app.use('/ativos', ativoRoutes);
 
 // não remova essa exportação, é para o avaliador funcionar
 // você pode registrar suas rotas normalmente, como o exemplo acima

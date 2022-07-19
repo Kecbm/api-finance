@@ -20,6 +20,15 @@ const deposito = async (codCliente, valor) => {
 };
 
 const saque = async (codCliente, valor) => {
+  const [saldoDisponivel] = await connection.execute(
+    'SELECT saldoDisponivel FROM XPInvestimentos.cliente WHERE codCliente = ?',
+    [codCliente],
+  );
+
+  if(Number(valor) > Number(saldoDisponivel[0].saldoDisponivel)) {
+    return;
+  }
+
   await connection.execute(
     'INSERT INTO XPInvestimentos.saque (codCliente, valor) VALUES (?, ?)',
     [codCliente, valor],

@@ -17,6 +17,10 @@ const saque = async (req, res) => {
 
   const valorDoSaque = await contaService.saque(codCliente, valor);
 
+  if (!valorDoSaque) {
+    return res.status(404).json({ message: 'O valor a ser sacado não pode ser maior que o saldo disponível, negativo ou igual a zero' });
+  }
+
   return res.status(200).json(valorDoSaque);
 };
 

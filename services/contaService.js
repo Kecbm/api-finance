@@ -10,6 +10,13 @@ const deposito = async (codCliente, valor) => {
   return valorDepositado;
 };
 
+const saque = async (codCliente, valor) => {
+  const valorDoSaque = await contaModel.saque(codCliente, valor);
+
+  return valorDoSaque;
+};
+
 module.exports = {
   deposito,
+  saque,
 };

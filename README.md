@@ -30,31 +30,35 @@ Na aplicação desenvolvida é possível **ler, escrever ou atualizar** informa�
 ```
 
 ```bash
+  docker-compose up -d
+```
+
+O comando irá inicializar um container chamado *XP_Investimentos* e outro chamado *XP_Investimentos_db*
+
+```bash
+  docker exec -it XP_Investimentos bash
+```
+
+```bash
+  npm install
+```
+
+```bash
   npm run debug
 ```
+
+*Gerar o BD XPInvestimentos* via workbench com sql script com as *credenciais do .env*
+
+*Fazer as requisições* nas rotas
 
 ## Minhas considerações durante o desenvolvimento
 
 #### Rodar a aplicação:
 
-```bash
-  cd psel-turma-XP
-```
-
-```bash
-  npm run debug
-```
-
-**3**
-`Gerar o BD XPInvestimentos via workbench com sql script com as credenciais do .env`
-
-**4**
-`Fazer as requisições nas rotas`
-
 **Solução para o erro: "unknown database"**
 
-Passei cerca de 3 horas com esse erro, alterei dados da conexão, substituindo o acesso ao _.env_ por a string equivalente; Excluí os containers algumas vezes e rodei o _docker-compose up -d_ para gera-los novamente porém não resolveu.
+Passei cerca de 3 horas com esse erro, alterei dados da conexão, substituindo o acesso ao *.env* por a string equivalente; Excluí os containers algumas vezes e rodei o *docker-compose up -d* para gera-los novamente porém não resolveu.
 
-Focando em continuar o desenvolvimento do desafio técnico encontrei uma solução na segunda resposta da pergunta do Stack Overflow abaixo:
+Focando em continuar o desenvolvimento do desafio técnico encontrei uma solução na segunda resposta da pergunta do Stack Overflow abaixo (referente a os dois ultimos passos da seção *executando a aplicação*):
 
 - [Referência](https://stackoverflow.com/questions/53426919/mysql-docker-container-gives-unknown-database-error)

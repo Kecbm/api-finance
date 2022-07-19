@@ -15,25 +15,43 @@ Na aplicação desenvolvida é possível **ler, escrever ou atualizar** informa�
 
 ### Instalando depedências
 
-cd psel-turma-XP
+```bash
+  cd psel-turma-XP
+```
 
-npm install
+```bash
+  npm install
+```
 
 ### Executando a aplicação
 
-cd psel-turma-XP
+```bash
+  cd psel-turma-XP
+```
 
-npm run dev
+```bash
+  npm run debug
+```
 
 ## Minhas considerações durante o desenvolvimento
 
-`Rodar a aplicação:`
+#### Rodar a aplicação:
 
-**1.** `npm run debug`
+**1**
+```bash
+  cd psel-turma-XP
+```
 
-**2.** `Gerar o BD XPInvestimentos via workbench com sql script com as credenciais do .env`
+**2**
+```bash
+  npm run debug
+```
 
-**3.** `Fazer as requisições nas rotas`
+**3**
+`Gerar o BD XPInvestimentos via workbench com sql script com as credenciais do .env`
+
+**4**
+`Fazer as requisições nas rotas`
 
 **Solução para o erro: "unknown database"**
 
@@ -41,4 +59,4 @@ Passei cerca de 3 horas com esse erro, alterei dados da conexão, substituindo o
 
 Focando em continuar o desenvolvimento do desafio técnico encontrei uma solução na segunda resposta da pergunta do Stack Overflow abaixo:
 
-Referência: https://stackoverflow.com/questions/53426919/mysql-docker-container-gives-unknown-database-error
+- [Referência](https://stackoverflow.com/questions/53426919/mysql-docker-container-gives-unknown-database-error)

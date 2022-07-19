@@ -5,7 +5,11 @@ const deposito = async (req, res) => {
 
   const valorDepositado = await contaService.deposito(codCliente, valor);
 
-  res.status(200).json(valorDepositado);
+  if (!valorDepositado) {
+    return res.status(404).json({ message: 'O valor a ser depositado não pode ser negativo ou igual a zero' });
+  }
+
+  return res.status(200).json(valorDepositado);
 };
 
 module.exports = {

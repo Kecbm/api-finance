@@ -37,12 +37,10 @@ Na aplicação desenvolvida é possível **ler, escrever ou atualizar** informa�
 
 #### Rodar a aplicação:
 
-**1**
 ```bash
   cd psel-turma-XP
 ```
 
-**2**
 ```bash
   npm run debug
 ```

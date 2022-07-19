@@ -13,6 +13,10 @@ const deposito = async (codCliente, valor) => {
 const saque = async (codCliente, valor) => {
   const valorDoSaque = await contaModel.saque(codCliente, valor);
 
+  if (valor === '0' || valor < 0) {
+    return;
+  }
+
   return valorDoSaque;
 };
 

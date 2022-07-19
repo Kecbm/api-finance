@@ -47,7 +47,20 @@ const saque = async (codCliente, valor) => {
   return `Olá ${nomeCliente[0].nomeCliente}, seu saque de R$ ${valor} foi confirmado e já está disponível em sua conta`;
 };
 
+const saldo = async (id) => {
+  const [saldoCliente] = await connection.execute(
+    'SELECT saldoDisponivel FROM XPInvestimentos.cliente WHERE codCliente = ?',
+    [id],
+  );
+
+  return {
+    CodCliente: id,
+    Saldo: saldoCliente[0].saldoDisponivel,
+  };
+};
+
 module.exports = {
   deposito,
   saque,
+  saldo,
 };

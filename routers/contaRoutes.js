@@ -6,5 +6,6 @@ const contaController = require('../controllers/contaController');
 
 router.post('/deposito', contaController.deposito);
 router.post('/saque', contaController.saque);
+router.get('/:id', contaController.saldo);
 
 module.exports = router;

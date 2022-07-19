@@ -24,7 +24,7 @@ const getByClient = async (id) => {
   const [allStocks] = await connection.execute(
       'SELECT COUNT(*) AS totalAtivo FROM XPInvestimentos.ativo;',
   );
-  
+
   const stop = allStocks[0].totalAtivo + 1;
 
   for (let i = 1; i < stop; i += 1) {
@@ -51,8 +51,18 @@ const getByClient = async (id) => {
   return arrayStocks;
 };
 
+const getByAssets = async (id) => {
+  const [informacoesAtivo] = await connection.execute(
+    'SELECT CodAtivo, QtdeAtivo, Valor FROM XPInvestimentos.ativo WHERE codAtivo = ?',
+    [id],
+  );
+
+  return informacoesAtivo;
+};
+
 module.exports = {
   quantity,
   carteira,
   getByClient,
+  getByAssets,
 };

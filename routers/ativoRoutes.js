@@ -7,5 +7,6 @@ const ativoControllers = require('../controllers/ativoController');
 router.get('/quantidade/:id', ativoControllers.quantity);
 router.get('/carteira/:id', ativoControllers.carteira);
 router.get('/cliente/:id', ativoControllers.getByClient);
+router.get('/:id', ativoControllers.getByAssets);
 
 module.exports = router;

@@ -18,8 +18,15 @@ const getByClient = async (id) => {
   return client;
 };
 
+const getByAssets = async (id) => {
+  const ativo = await ativoModel.getByAssets(id);
+
+  return ativo;
+};
+
 module.exports = {
   quantity,
   carteira,
   getByClient,
+  getByAssets,
 };

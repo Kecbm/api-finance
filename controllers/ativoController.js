@@ -25,8 +25,17 @@ const getByClient = async (req, res) => {
   res.status(200).json(client);
 };
 
+const getByAssets = async (req, res) => {
+  const { id } = req.params;
+
+  const ativo = await ativoService.getByAssets(Number(id));
+
+  res.status(200).json(...ativo);
+};
+
 module.exports = {
   quantity,
   carteira,
   getByClient,
+  getByAssets,
 };

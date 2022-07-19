@@ -19,8 +19,13 @@ const carteira = async (id, codAtivo) => {
 };
 
 const getByClient = async (id) => {
-  const stop = 4;
   const arrayStocks = [];
+
+  const [allStocks] = await connection.execute(
+      'SELECT COUNT(*) AS totalAtivo FROM XPInvestimentos.ativo;',
+  );
+  
+  const stop = allStocks[0].totalAtivo + 1;
 
   for (let i = 1; i < stop; i += 1) {
     const [qtdeAtivo] = await connection.execute(

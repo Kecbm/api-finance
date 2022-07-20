@@ -54,6 +54,10 @@ O comando irá inicializar um container chamado *XP_Investimentos* e outro chama
 ### Executando os testes unitários
 
 ```bash
+  cd psel-turma-XP
+```
+
+```bash
   npm run test:mocha
 ```
 

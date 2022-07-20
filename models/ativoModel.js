@@ -42,7 +42,7 @@ const getByClient = async (id) => {
       CodCliente: id,
       CodAtivo: i,
       QtdeAtivo: qtdeAtivo[0].qtdeAtivo,
-      Valor: valorAtivo[0].valor,
+      Valor: Number(valorAtivo[0].valor),
     };
   
     arrayStocks.push(objWallet);

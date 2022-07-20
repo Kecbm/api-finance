@@ -24,6 +24,54 @@ const dataAtivos = [
   },
 ];
 
+const dataCarteira = [
+  {
+    codCliente: 1,
+    codAtivo: 1,
+    qtdeAtivo: 20
+  },
+  {
+    codCliente: 1,
+    codAtivo: 2,
+    qtdeAtivo: 20
+  },
+  {
+    codCliente: 1,
+    codAtivo: 3,
+    qtdeAtivo: 20
+  },
+  {
+    codCliente: 2,
+    codAtivo: 1,
+    qtdeAtivo: 20
+  },
+  {
+    codCliente: 2,
+    codAtivo: 2,
+    qtdeAtivo: 20
+  },
+  {
+    codCliente: 2,
+    codAtivo: 3,
+    qtdeAtivo: 20
+  },
+  {
+    codCliente: 3,
+    codAtivo: 1,
+    qtdeAtivo: 20
+  },
+  {
+    codCliente: 3,
+    codAtivo: 2,
+    qtdeAtivo: 20
+  },
+  {
+    codCliente: 3,
+    codAtivo: 3,
+    qtdeAtivo: 20
+  },
+];
+
 const dataAssets = [
   {
     CodAtivo: 1,
@@ -133,17 +181,17 @@ describe('Testando o ativoModel', () => {
 
   describe('ativoModel.carteira', () => {
     before(() => {
-      const stubConnectionExecute = sinon.stub(connection, 'execute').resolves(dataAtivos);
+      const stubConnectionExecute = sinon.stub(connection, 'execute').resolves(dataCarteira);
 
-      stubConnectionExecute.onCall(0).resolves([dataAtivos[0]]);
-      stubConnectionExecute.onCall(1).resolves([dataAtivos[0]]);
-      stubConnectionExecute.onCall(2).resolves([dataAtivos[0]]);
-      stubConnectionExecute.onCall(3).resolves([dataAtivos[1]]);
-      stubConnectionExecute.onCall(4).resolves([dataAtivos[1]]);
-      stubConnectionExecute.onCall(5).resolves([dataAtivos[1]]);
-      stubConnectionExecute.onCall(6).resolves([dataAtivos[2]]);
-      stubConnectionExecute.onCall(7).resolves([dataAtivos[2]]);
-      stubConnectionExecute.onCall(8).resolves([dataAtivos[2]]);
+      stubConnectionExecute.onCall(0).resolves([dataCarteira[0]]);
+      stubConnectionExecute.onCall(1).resolves([dataCarteira[0]]);
+      stubConnectionExecute.onCall(2).resolves([dataCarteira[0]]);
+      stubConnectionExecute.onCall(3).resolves([dataCarteira[1]]);
+      stubConnectionExecute.onCall(4).resolves([dataCarteira[1]]);
+      stubConnectionExecute.onCall(5).resolves([dataCarteira[1]]);
+      stubConnectionExecute.onCall(6).resolves([dataCarteira[2]]);
+      stubConnectionExecute.onCall(7).resolves([dataCarteira[2]]);
+      stubConnectionExecute.onCall(8).resolves([dataCarteira[2]]);
       stubConnectionExecute.onCall(9).resolves([{}]);
       stubConnectionExecute.onCall(10).resolves([{}]);
     });

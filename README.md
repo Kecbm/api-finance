@@ -51,6 +51,12 @@ O comando irá inicializar um container chamado *XP_Investimentos* e outro chama
 
 *Fazer as requisições* nas rotas
 
+### Executando os testes unitários
+
+```bash
+  npm run test:mocha
+```
+
 ## Minhas considerações durante o desenvolvimento
 
 #### Rodar a aplicação:

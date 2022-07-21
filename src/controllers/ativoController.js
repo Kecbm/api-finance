@@ -8,15 +8,6 @@ const quantity = async (req, res) => {
   res.status(200).json(ativo[0]);
 };
 
-const carteira = async (req, res) => {
-  const { id } = req.params;
-  const { codAtivo } = req.body;
-
-  const quantidade = await ativoService.carteira(Number(id), codAtivo);
-
-  res.status(200).json(quantidade[0]);
-};
-
 const getByClient = async (req, res) => {
   const { id } = req.params;
 
@@ -35,7 +26,6 @@ const getByAssets = async (req, res) => {
 
 module.exports = {
   quantity,
-  carteira,
   getByClient,
   getByAssets,
 };

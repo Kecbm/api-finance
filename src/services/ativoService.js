@@ -6,12 +6,6 @@ const quantity = async (id) => {
   return ativo;
 };
 
-const carteira = async (id, codAtivo) => {
-  const quantidade = await ativoModel.carteira(id, codAtivo);
-
-  return quantidade;
-};
-
 const getByClient = async (id) => {
   const client = await ativoModel.getByClient(id);
 
@@ -26,7 +20,6 @@ const getByAssets = async (id) => {
 
 module.exports = {
   quantity,
-  carteira,
   getByClient,
   getByAssets,
 };

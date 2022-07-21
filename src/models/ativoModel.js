@@ -9,15 +9,6 @@ const quantity = async (id) => {
   return quantidadeDoAtivo;
 };
 
-const carteira = async (id, codAtivo) => {
-  const [quantidade] = await connection.execute(
-    'SELECT qtdeAtivo FROM XPInvestimentos.carteira WHERE codCliente = ? AND codAtivo = ?',
-    [id, codAtivo],
-  );
-
-  return quantidade;
-};
-
 const getByClient = async (id) => {
   const arrayStocks = [];
 
@@ -62,7 +53,6 @@ const getByAssets = async (id) => {
 
 module.exports = {
   quantity,
-  carteira,
   getByClient,
   getByAssets,
 };

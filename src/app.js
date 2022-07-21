@@ -5,7 +5,7 @@ const app = express();
 const investimentosRoutes = require('./routers/investimentosRoutes');
 const ativoRoutes = require('./routers/ativoRoutes');
 const contaRoutes = require('./routers/contaRoutes');
-const error = require('../middlewares/error');
+const error = require('./middlewares/error');
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {

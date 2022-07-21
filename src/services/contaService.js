@@ -32,9 +32,16 @@ const login = async (body) => {
   return token;
 };
 
+const carteira = async (id, codAtivo) => {
+  const quantidade = await contaModel.carteira(id, codAtivo);
+
+  return quantidade;
+};
+
 module.exports = {
   deposito,
   saque,
   saldo,
   login,
+  carteira,
 };

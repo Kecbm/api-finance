@@ -71,9 +71,19 @@ const login = async (body) => {
   return generateJWT(cliente[0]);
 };
 
+const carteira = async (id, codAtivo) => {
+  const [quantidade] = await connection.execute(
+    'SELECT qtdeAtivo FROM XPInvestimentos.carteira WHERE codCliente = ? AND codAtivo = ?',
+    [id, codAtivo],
+  );
+
+  return quantidade;
+};
+
 module.exports = {
   deposito,
   saque,
   saldo,
   login,
+  carteira,
 };

@@ -38,9 +38,19 @@ const login = async (req, res) => {
   return res.status(200).json({ token });
 };
 
+const carteira = async (req, res) => {
+  const { id } = req.params;
+  const { codAtivo } = req.body;
+
+  const quantidade = await contaService.carteira(Number(id), codAtivo);
+
+  res.status(200).json(quantidade[0]);
+};
+
 module.exports = {
   deposito,
   saque,
   saldo,
   login,
+  carteira,
 };

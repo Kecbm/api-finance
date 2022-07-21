@@ -1,5 +1,5 @@
 const investimentosModel = require('../models/investimentosModel');
-const ativoService = require('../services/ativoService');
+const contaService = require('../services/contaService');
 
 const comprar = async (body) => {
   const { codAtivo, qtdeAtivo } = body;
@@ -18,7 +18,7 @@ const comprar = async (body) => {
 const vender = async (body) => {
   const { codAtivo, qtdeAtivo, codCliente } = body;
 
-  const [quantidadeCarteira] = await ativoService.carteira(codCliente, codAtivo);
+  const [quantidadeCarteira] = await contaService.carteira(codCliente, codAtivo);
 
   if (qtdeAtivo > quantidadeCarteira.qtdeAtivo) {
     return;

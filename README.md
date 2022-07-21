@@ -6,7 +6,7 @@ Uma _API_ que simula o funcionamento de uma corretora, utilizando _Node.JS_ e a 
 
 ### Desenvolvimento
 
-Na aplicação desenvolvida é possível **ler, escrever ou atualizar** informações sobre `compra e venda de ações`, `carteira de ações do cliente`, `código e valor de um ativo`, `depositar e sacar da conta do cliente` e `solicitar o saldo disponível da conta do cliente`. Todas as informações estão em um _banco de dados_, que foi desenvolvido e manipulado utilizando o **MySQL**.
+Na aplicação desenvolvida é possível **ler, escrever ou atualizar** informações sobre `compra e venda de ações`, `carteira de ações do cliente`, `código e valor de um ativo`, `depositar e sacar da conta do cliente` e `solicitar o saldo disponível da conta do cliente`. Todas as informações estão em um **banco de dados**, que foi desenvolvido e manipulado utilizando o **MySQL**.
 
 ### Tecnologias utilizadas
 
@@ -33,7 +33,7 @@ Na aplicação desenvolvida é possível **ler, escrever ou atualizar** informa�
   docker-compose up -d
 ```
 
-O comando irá inicializar um container chamado *XP_Investimentos* e outro chamado *XP_Investimentos_db*
+O comando irá inicializar um container chamado `XP_Investimentos` e outro chamado `XP_Investimentos_db`
 
 ```bash
   docker exec -it XP_Investimentos bash
@@ -47,9 +47,9 @@ O comando irá inicializar um container chamado *XP_Investimentos* e outro chama
   npm run debug
 ```
 
-*Gerar o BD XPInvestimentos* via workbench com sql script com as *credenciais do .env*
+`Gerar o BD XPInvestimentos` via workbench com sql script com as **credenciais do .env**
 
-*Fazer as requisições* nas rotas
+`Fazer as requisições` nas rotas
 
 ### Executando os testes unitários
 
@@ -72,3 +72,8 @@ Passei cerca de 3 horas com esse erro, alterei dados da conexão, substituindo o
 Focando em continuar o desenvolvimento do desafio técnico encontrei uma solução na segunda resposta da pergunta do Stack Overflow abaixo (referente a os dois ultimos passos da seção *executando a aplicação*):
 
 - [Referência](https://stackoverflow.com/questions/53426919/mysql-docker-container-gives-unknown-database-error)
+
+#### Diagrama do banco de dados:
+
+Gerei o diagrama do banco de dados no site [Diagrams.net](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwid2Z_poor5AhXjupUCHUBEBO8QFnoECAQQAQ&url=https%3A%2F%2Fwww.diagrams.net%2F&usg=AOvVaw1-h_Mns_MotizBNxF18KnX)
+

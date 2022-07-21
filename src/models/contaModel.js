@@ -1,4 +1,4 @@
-const connection = require('../db');
+const connection = require('../../database/db');
 
 const deposito = async (codCliente, valor) => {
   await connection.execute(

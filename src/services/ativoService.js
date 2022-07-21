@@ -6,12 +6,6 @@ const quantity = async (id) => {
   return ativo;
 };
 
-const getByClient = async (id) => {
-  const client = await ativoModel.getByClient(id);
-
-  return client;
-};
-
 const getByAssets = async (id) => {
   const ativo = await ativoModel.getByAssets(id);
 
@@ -20,6 +14,5 @@ const getByAssets = async (id) => {
 
 module.exports = {
   quantity,
-  getByClient,
   getByAssets,
 };

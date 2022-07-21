@@ -47,10 +47,19 @@ const carteira = async (req, res) => {
   res.status(200).json(quantidade[0]);
 };
 
+const getByClient = async (req, res) => {
+  const { id } = req.params;
+
+  const client = await contaService.getByClient(Number(id));
+
+  res.status(200).json(client);
+};
+
 module.exports = {
   deposito,
   saque,
   saldo,
   login,
   carteira,
+  getByClient,
 };

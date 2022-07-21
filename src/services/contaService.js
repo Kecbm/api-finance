@@ -38,10 +38,17 @@ const carteira = async (id, codAtivo) => {
   return quantidade;
 };
 
+const getByClient = async (id) => {
+  const client = await contaModel.getByClient(id);
+
+  return client;
+};
+
 module.exports = {
   deposito,
   saque,
   saldo,
   login,
   carteira,
+  getByClient,
 };

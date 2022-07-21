@@ -1,4 +1,5 @@
-const connection = require('../../database/db');
+const connection = require('../../database/db/');
+const generateJWT = require('../utils/generateJWT');
 
 const deposito = async (codCliente, valor) => {
   await connection.execute(
@@ -59,8 +60,20 @@ const saldo = async (id) => {
   };
 };
 
+const login = async (body) => {
+  const { emailCliente, senhaCliente } = body;
+
+  const [cliente] = await connection.execute(
+    'SELECT emailCliente, senhaCliente FROM XPInvestimentos.cliente WHERE emailCliente = ? AND senhaCliente = ?',
+    [emailCliente, senhaCliente],
+  );
+
+  return generateJWT(cliente[0]);
+};
+
 module.exports = {
   deposito,
   saque,
   saldo,
+  login,
 };

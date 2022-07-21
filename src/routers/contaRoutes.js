@@ -9,5 +9,6 @@ const { validateCodCliente } = require('../middlewares/validateInvestimentos');
 router.post('/deposito', validateValor, validateCodCliente, contaController.deposito);
 router.post('/saque', validateValor, validateCodCliente, contaController.saque);
 router.get('/:id', contaController.saldo);
+router.post('/login', contaController.login);
 
 module.exports = router;

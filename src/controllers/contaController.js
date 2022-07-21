@@ -32,8 +32,15 @@ const saldo = async (req, res) => {
   return res.status(200).json(saldoCliente);
 };
 
+const login = async (req, res) => {
+  const token = await contaService.login(req.body);
+
+  return res.status(200).json({ token });
+};
+
 module.exports = {
   deposito,
   saque,
   saldo,
+  login,
 };

@@ -26,8 +26,15 @@ const saldo = async (id) => {
   return saldoCliente;
 };
 
+const login = async (body) => {
+  const token = await contaModel.login(body);
+  
+  return token;
+};
+
 module.exports = {
   deposito,
   saque,
   saldo,
+  login,
 };

@@ -69,9 +69,7 @@ O comando irá inicializar um container chamado `XP_Investimentos` e outro chama
 
 Passei cerca de 3 horas com esse erro, alterei dados da conexão, substituindo o acesso ao *.env* por a string equivalente; Excluí os containers algumas vezes e rodei o *docker-compose up -d* para gera-los novamente porém não resolveu.
 
-Focando em continuar o desenvolvimento do desafio técnico encontrei uma solução na segunda resposta da pergunta do Stack Overflow abaixo (referente a os dois ultimos passos da seção *executando a aplicação*):
-
-- [Referência](https://stackoverflow.com/questions/53426919/mysql-docker-container-gives-unknown-database-error)
+Focando em continuar o desenvolvimento do desafio técnico encontrei uma solução [na segunda resposta dessa pergunta do Stack Overflow](https://stackoverflow.com/questions/53426919/mysql-docker-container-gives-unknown-database-error) (referente a os dois ultimos passos da seção *executando a aplicação*).
 
 #### Diagrama do banco de dados:
 

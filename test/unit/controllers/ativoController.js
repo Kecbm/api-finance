@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const ativoController = require('../../../controllers/ativoController');
-const ativoService = require('../../../services/ativoService');
+const ativoController = require('../../../src/controllers/ativoController');
+const ativoService = require('../../../src/services/ativoService');
 
 const dataAtivos = [
   {

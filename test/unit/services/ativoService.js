@@ -1,8 +1,8 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const { expect } = require('chai');
-const ativoModel = require('../../../models/ativoModel');
-const ativoService = require('../../../services/ativoService');
+const ativoModel = require('../../../src/models/ativoModel');
+const ativoService = require('../../../src/services/ativoService');
 
 const dataAtivos = [
   {

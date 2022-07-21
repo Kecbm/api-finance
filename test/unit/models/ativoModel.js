@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const connection = require('../../../db');
-const ativoModel = require('../../../models/ativoModel');
+const connection = require('../../../database/db');
+const ativoModel = require('../../../src/models/ativoModel');
 
 const dataAtivos = [
   {

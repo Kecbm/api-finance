@@ -1,4 +1,5 @@
 const investimentosModel = require('../models/investimentosModel');
+const ativoService = require('../services/ativoService');
 const contaService = require('../services/contaService');
 
 const comprar = async (body) => {

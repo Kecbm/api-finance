@@ -90,7 +90,7 @@ const getByClient = async (id) => {
 
   for (let i = 1; i < stop; i += 1) {
     const [qtdeAtivo] = await connection.execute(
-      'SELECT qtdeAtivo FROM XPInvestimentos.comprar WHERE codCliente = ? AND codAtivo = ?',
+      'SELECT qtdeAtivo FROM XPInvestimentos.carteira WHERE codCliente = ? AND codAtivo = ?',
       [id, i],
     );
   

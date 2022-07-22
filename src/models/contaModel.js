@@ -2,7 +2,7 @@ const connection = require('../../database/db/');
 const generateJWT = require('../utils/generateJWT');
 
 const deposito = async (codCliente, valor) => {
-  await connection.execute(
+  const [deposito] = await connection.execute(
     'INSERT INTO XPInvestimentos.deposito (codCliente, valor) VALUES (?, ?)',
     [codCliente, valor],
   );
@@ -12,12 +12,11 @@ const deposito = async (codCliente, valor) => {
     [codCliente],
   );
 
-  const [nomeCliente] = await connection.execute(
-    'SELECT nomeCliente FROM XPInvestimentos.cliente WHERE codCliente = ?',
-    [codCliente],
-  );
-
-  return `Olá ${nomeCliente[0].nomeCliente}, seu deposito de R$ ${valor} foi confirmado e já está disponível em sua conta`;
+  return {
+    id: deposito.insertId,
+    codCliente,
+    valor,
+  };
 };
 
 const saque = async (codCliente, valor) => {
@@ -30,7 +29,7 @@ const saque = async (codCliente, valor) => {
     return;
   }
 
-  await connection.execute(
+  const [saque] = await connection.execute(
     'INSERT INTO XPInvestimentos.saque (codCliente, valor) VALUES (?, ?)',
     [codCliente, valor],
   );
@@ -40,12 +39,11 @@ const saque = async (codCliente, valor) => {
     [codCliente],
   );
 
-  const [nomeCliente] = await connection.execute(
-    'SELECT nomeCliente FROM XPInvestimentos.cliente WHERE codCliente = ?',
-    [codCliente],
-  );
-
-  return `Olá ${nomeCliente[0].nomeCliente}, seu saque de R$ ${valor} foi confirmado e já está disponível em sua conta`;
+  return {
+    id: saque.insertId,
+    codCliente,
+    valor,
+  };;
 };
 
 const saldo = async (id) => {

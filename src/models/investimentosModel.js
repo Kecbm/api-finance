@@ -3,7 +3,7 @@ const connection = require('../../database/db');
 const comprar = async (body) => {
   const { codCliente, codAtivo, qtdeAtivo } = body;
 
-  await connection.execute(
+  const [compra] = await connection.execute(
     'INSERT INTO XPInvestimentos.comprar (codCliente, codAtivo, qtdeAtivo) VALUES (?, ?, ?)',
     [codCliente, codAtivo, qtdeAtivo],
   );
@@ -23,28 +23,23 @@ const comprar = async (body) => {
     [codCliente],
   );
 
-  const [nomeCliente] = await connection.execute(
-    'SELECT nomeCliente FROM XPInvestimentos.cliente WHERE codCliente = ?',
-    [codCliente],
-  );
-
-  const [nomeAtivo] = await connection.execute(
-    'SELECT nomeAtivo FROM XPInvestimentos.ativo WHERE codAtivo = ?',
-    [codAtivo],
-  );
-
   await connection.execute(
     `UPDATE XPInvestimentos.carteira SET qtdeAtivo = qtdeAtivo + ${qtdeAtivo} WHERE codAtivo = ? AND codCliente = ?`,
     [codAtivo, codCliente],
   );
 
-  return `Olá ${nomeCliente[0].nomeCliente}, você acabou de comprar ${qtdeAtivo} unidades da ação ${nomeAtivo[0].nomeAtivo}`;
+  return {
+    id: compra.insertId,
+    codCliente,
+    codAtivo,
+    qtdeAtivo,
+  };
 };
 
 const vender = async (body) => {
   const { codCliente, codAtivo, qtdeAtivo } = body;
 
-  await connection.execute(
+  const [venda] = await connection.execute(
     'INSERT INTO XPInvestimentos.vender (codCliente, codAtivo, qtdeAtivo) VALUES (?, ?, ?)',
     [codCliente, codAtivo, qtdeAtivo],
   );
@@ -64,22 +59,17 @@ const vender = async (body) => {
     [codCliente],
   );
 
-  const [nomeCliente] = await connection.execute(
-    'SELECT nomeCliente FROM XPInvestimentos.cliente WHERE codCliente = ?',
-    [codCliente],
-  );
-
-  const [nomeAtivo] = await connection.execute(
-    'SELECT nomeAtivo FROM XPInvestimentos.ativo WHERE codAtivo = ?',
-    [codAtivo],
-  );
-
   await connection.execute(
     `UPDATE XPInvestimentos.carteira SET qtdeAtivo = qtdeAtivo - ${qtdeAtivo} WHERE codAtivo = ? AND codCliente = ?`,
     [codAtivo, codCliente],
   );
 
-  return `Olá ${nomeCliente[0].nomeCliente}, você acabou de vender ${qtdeAtivo} unidades da ação ${nomeAtivo[0].nomeAtivo}`;
+  return {
+    id: venda.insertId,
+    codCliente,
+    codAtivo,
+    qtdeAtivo,
+  };
 };
 
 module.exports = {

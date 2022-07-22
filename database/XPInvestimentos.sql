@@ -138,6 +138,7 @@ INSERT INTO XPInvestimentos.carteira(codCliente, codAtivo, qtdeAtivo, date) VALU
 CREATE TABLE corretora (
     id INT NOT NULL auto_increment,
     codCliente INT NOT NULL,
+    operacao VARCHAR(30) NOT NULL,
     codAtivo INT NOT NULL,
     qtdeAtivo INT NOT NULL,
     taxa DECIMAL NOT NULL,
@@ -151,9 +152,9 @@ CREATE TABLE corretora (
         ON DELETE CASCADE
 )  ENGINE=INNODB;
 
-INSERT INTO XPInvestimentos.corretora(codCliente, codAtivo, qtdeAtivo, taxa, date) VALUES
-(1, 1, 20, 98, NOW()),
-(1, 2, 20, 98, NOW()),
-(1, 3, 20, 98, NOW());
+INSERT INTO XPInvestimentos.corretora(codCliente, operacao, codAtivo, qtdeAtivo, taxa, date) VALUES
+(1, 'venda', 1, 20, 70, NOW()),
+(1, 'venda', 2, 20, 70, NOW()),
+(1, 'venda', 3, 20, 70, NOW());
 
 SET SQL_SAFE_UPDATES = 0;

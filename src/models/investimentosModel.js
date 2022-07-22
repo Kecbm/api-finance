@@ -1,5 +1,5 @@
 const connection = require('../../database/db');
-const taxaCompra = require('../utils/determinaTaxa');
+const { taxaCompra, taxaVenda } = require('../utils/determinaTaxa');
 
 const comprar = async (body) => {
   const { codCliente, codAtivo, qtdeAtivo } = body;
@@ -52,6 +52,8 @@ const vender = async (body) => {
     [codCliente, codAtivo, qtdeAtivo],
   );
 
+  const taxa = taxaVenda(qtdeAtivo);
+
   await connection.execute(
     `UPDATE XPInvestimentos.ativo SET qtdeAtivo = qtdeAtivo + ${qtdeAtivo} WHERE codAtivo = ?`,
     [codAtivo],
@@ -63,13 +65,18 @@ const vender = async (body) => {
   );
 
   await connection.execute(
-    `UPDATE XPInvestimentos.cliente SET saldoDisponivel = saldoDisponivel + ${qtdeAtivo * valorAtivo[0].valor} WHERE codCliente = ?`,
+    `UPDATE XPInvestimentos.cliente SET saldoDisponivel = saldoDisponivel + ${(qtdeAtivo * valorAtivo[0].valor) - taxa} WHERE codCliente = ?`,
     [codCliente],
   );
 
   await connection.execute(
     `UPDATE XPInvestimentos.carteira SET qtdeAtivo = qtdeAtivo - ${qtdeAtivo} WHERE codAtivo = ? AND codCliente = ?`,
     [codAtivo, codCliente],
+  );
+
+  await connection.execute(
+    `INSERT INTO XPInvestimentos.corretora (codCliente, codAtivo, qtdeAtivo , taxa) VALUES (?, ?, ?, ?)`,
+    [codCliente, codAtivo, qtdeAtivo, taxa],
   );
 
   return {

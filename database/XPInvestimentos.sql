@@ -27,9 +27,12 @@ CREATE TABLE ativo (
 ) ENGINE=INNODB;
 
 INSERT INTO XPInvestimentos.ativo (nomeAtivo, valor, qtdeAtivo, date) VALUES
-    ("SPMKT3 - Supermercado", 50, 100, NOW()),
-    ("PET4 - Petshop", 25, 100, NOW()),
-    ("POST3 - Posto de combustível", 100, 100, NOW());
+    ("SPMK3 - Supermercado", 50, 100, NOW()),
+    ("PETS4 - Petshop", 25, 100, NOW()),
+    ("POST3 - Posto de combustível", 100, 100, NOW()),
+    ("FARM4 - Farmacia", 15, 100, NOW()),
+    ("PADA3 - Padaria", 30, 100, NOW()),
+    ("CINE4 - Cinema", 60, 100, NOW());
 
 CREATE TABLE deposito (
     idDeposito INT NOT NULL auto_increment,
@@ -128,11 +131,14 @@ INSERT INTO XPInvestimentos.carteira(codCliente, codAtivo, qtdeAtivo, date) VALU
 (1, 1, 20, NOW()),
 (1, 2, 20, NOW()),
 (1, 3, 20, NOW()),
+(1, 4, 20, NOW()),
 (2, 1, 20, NOW()),
 (2, 2, 20, NOW()),
 (2, 3, 20, NOW()),
+(2, 5, 20, NOW()),
 (3, 1, 20, NOW()),
 (3, 2, 20, NOW()),
-(3, 3, 20, NOW());
+(3, 3, 20, NOW()),
+(3, 6, 20, NOW());
 
 SET SQL_SAFE_UPDATES = 0;

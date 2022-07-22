@@ -1,4 +1,5 @@
 const connection = require('../../database/db');
+const taxaCompra = require('../utils/determinaTaxa');
 
 const comprar = async (body) => {
   const { codCliente, codAtivo, qtdeAtivo } = body;
@@ -18,14 +19,21 @@ const comprar = async (body) => {
     [codAtivo],
   );
 
+  const taxa = taxaCompra(qtdeAtivo, valorAtivo[0].valor);
+
   await connection.execute(
-    `UPDATE XPInvestimentos.cliente SET saldoDisponivel = saldoDisponivel - ${qtdeAtivo * valorAtivo[0].valor} WHERE codCliente = ?`,
+    `UPDATE XPInvestimentos.cliente SET saldoDisponivel = saldoDisponivel - ${(qtdeAtivo * valorAtivo[0].valor) + taxa} WHERE codCliente = ?`,
     [codCliente],
   );
 
   await connection.execute(
     `UPDATE XPInvestimentos.carteira SET qtdeAtivo = qtdeAtivo + ${qtdeAtivo} WHERE codAtivo = ? AND codCliente = ?`,
     [codAtivo, codCliente],
+  );
+
+  await connection.execute(
+    `INSERT INTO XPInvestimentos.corretora (codCliente, codAtivo, qtdeAtivo , taxa) VALUES (?, ?, ?, ?)`,
+    [codCliente, codAtivo, qtdeAtivo, taxa],
   );
 
   return {

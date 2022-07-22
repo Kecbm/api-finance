@@ -78,7 +78,6 @@ const carteira = async (id, codAtivo) => {
   return quantidade;
 };
 
-
 const getByClient = async (id) => {
   const arrayStocks = [];
 

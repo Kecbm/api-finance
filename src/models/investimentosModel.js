@@ -32,8 +32,8 @@ const comprar = async (body) => {
   );
 
   await connection.execute(
-    `INSERT INTO XPInvestimentos.corretora (codCliente, codAtivo, qtdeAtivo , taxa) VALUES (?, ?, ?, ?)`,
-    [codCliente, codAtivo, qtdeAtivo, taxa],
+    `INSERT INTO XPInvestimentos.corretora (codCliente, operacao, codAtivo, qtdeAtivo , taxa) VALUES (?, ?, ?, ?, ?)`,
+    [codCliente, 'compra', codAtivo, qtdeAtivo, taxa],
   );
 
   return {
@@ -75,8 +75,8 @@ const vender = async (body) => {
   );
 
   await connection.execute(
-    `INSERT INTO XPInvestimentos.corretora (codCliente, codAtivo, qtdeAtivo , taxa) VALUES (?, ?, ?, ?)`,
-    [codCliente, codAtivo, qtdeAtivo, taxa],
+    `INSERT INTO XPInvestimentos.corretora (codCliente, operacao, codAtivo, qtdeAtivo , taxa) VALUES (?, ?, ?, ?, ?)`,
+    [codCliente, 'venda', codAtivo, qtdeAtivo, taxa],
   );
 
   return {

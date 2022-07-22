@@ -32,10 +32,11 @@ INSERT INTO XPInvestimentos.ativo (nomeAtivo, valor, qtdeAtivo, date) VALUES
     ("POST3 - Posto de combustível", 100, 100, NOW());
 
 CREATE TABLE deposito (
-    id INT NOT NULL auto_increment,
+    idDeposito INT NOT NULL auto_increment,
     codCliente INT NOT NULL,
     valor DECIMAL NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(idDeposito),
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
         ON DELETE CASCADE
@@ -47,10 +48,11 @@ INSERT INTO XPInvestimentos.deposito (codCliente, valor, date) VALUES
     (3, 1000, NOW());
 
 CREATE TABLE saque (
-    id INT NOT NULL auto_increment,
+    idSaque INT NOT NULL auto_increment,
     codCliente INT NOT NULL,
     valor DECIMAL NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(idSaque),
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
         ON DELETE CASCADE
@@ -62,11 +64,12 @@ INSERT INTO XPInvestimentos.saque (codCliente, valor, date) VALUES
     (3, 50, NOW());
 
 CREATE TABLE comprar (
-    id INT NOT NULL auto_increment,
+    idCompra INT NOT NULL auto_increment,
     codCliente INT NOT NULL,
     codAtivo INT NOT NULL,
     qtdeAtivo INT NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(idCompra),
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
         ON DELETE CASCADE,
@@ -87,11 +90,12 @@ INSERT INTO XPInvestimentos.comprar(codCliente, codAtivo, qtdeAtivo, date) VALUE
     (3, 3, 10, NOW());
 
 CREATE TABLE vender (
-    id INT NOT NULL auto_increment,
+    idVenda INT NOT NULL auto_increment,
     codCliente INT NOT NULL,
     codAtivo INT NOT NULL,
     qtdeAtivo INT NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(idVenda),
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
         ON DELETE CASCADE,
@@ -106,11 +110,12 @@ INSERT INTO XPInvestimentos.vender(codCliente, codAtivo, qtdeAtivo, date) VALUES
     (3, 3, 5, NOW());
 
 CREATE TABLE carteira (
-    id INT NOT NULL auto_increment,
+    idTransacao INT NOT NULL auto_increment,
     codCliente INT NOT NULL,
     codAtivo INT NOT NULL,
     qtdeAtivo INT NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(idTransacao),
     FOREIGN KEY (codCliente)
         REFERENCES cliente (codCliente)
         ON DELETE CASCADE,

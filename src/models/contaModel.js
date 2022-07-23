@@ -66,6 +66,10 @@ const login = async (body) => {
     [emailCliente, senhaCliente],
   );
 
+  if (cliente.length === 0) {
+    return;
+  }
+
   return generateJWT(cliente[0]);
 };
 

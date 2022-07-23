@@ -35,6 +35,10 @@ const saldo = async (req, res) => {
 const login = async (req, res) => {
   const token = await contaService.login(req.body);
 
+  if (!token) {
+    return res.status(400).json({ message: 'Dados inválidos' });
+  }
+
   return res.status(200).json({ token });
 };
 

@@ -161,6 +161,31 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 
 - **Teste:** Realize requisições com o `codCliente: 1`, `codCliente: 2` ou `codCliente: 3`
 
+#### Quantidade de ativo na carteira do cliente
+
+```http
+  POST /conta/carteira/${codCliente}
+```
+
+| Parâmetros   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `codCliente` e `codAtivo` | `string` | **Obrigatórios**. Id do cliente e id do ativo |
+
+- **Teste:** Realize requisições com o `codCliente: 1`, `codCliente: 2` ou `codCliente: 3` com os seguintes `codAtivo`
+```json
+{
+  "codAtivo": "1"
+}
+
+{
+  "codAtivo": "2"
+}
+
+{
+  "codAtivo": "3"
+}
+```
+
 ## Minhas considerações durante o desenvolvimento 📝
 
 #### Rodar a aplicação: 📌

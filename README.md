@@ -93,7 +93,7 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 }
 ```
 
-#### Deposita na conta do cliente
+#### Deposito na conta do cliente
 
 ```http
   POST /conta/deposito
@@ -118,6 +118,34 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 {
   "codCliente": "3",
   "valor": "150"
+}
+```
+
+#### Saque na conta do cliente
+
+```http
+  POST /conta/saque
+```
+
+| Parâmetros   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `codCliente` e `valor` | `string` | **Obrigatórios**. Informações de saque na conta do cliente |
+
+- **Teste:** Realize requisições com o `codCliente: 1, 2` ou `3` e `valor` opcional:
+```json
+{
+  "codCliente": "1",
+  "valor": "10"
+}
+
+{
+  "codCliente": "2",
+  "valor": "15"
+}
+
+{
+  "codCliente": "3",
+  "valor": "20"
 }
 ```
 

@@ -205,6 +205,38 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 
 ```
 
+#### Venda de ativo
+
+```http
+  POST /investimentos/vender
+```
+
+| Parâmetros   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `codCliente`, `codAtivo` e `qtdeAtivo` | `string` | **Obrigatórios**. Informações para venda de ativo |
+
+- **Teste:** Realize requisições com `codCliente: 1`, `codCliente: 2` ou `codCliente: 3`; `codAtivo: 1`, `codAtivo: 2` ou `codAtivo: 3` e `qtdeAtivo` opcional:
+```json
+{
+    "codCliente": "1",
+    "codAtivo": "1",
+    "qtdeAtivo": "2"
+}
+
+{
+    "codCliente": "2",
+    "codAtivo": "2",
+    "qtdeAtivo": "4"
+}
+
+{
+    "codCliente": "3",
+    "codAtivo": "3",
+    "qtdeAtivo": "8"
+}
+
+```
+
 ## Minhas considerações durante o desenvolvimento 📝
 
 #### Rodar a aplicação: 📌

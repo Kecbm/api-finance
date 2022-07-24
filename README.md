@@ -93,6 +93,34 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 }
 ```
 
+#### Deposita na conta do cliente
+
+```http
+  POST /conta/deposito
+```
+
+| Parâmetros   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `codCliente` e `valor` | `string` | **Obrigatórios**. Informações de deposito na conta do cliente |
+
+- **Teste:** Realize requisições com o `codCliente: 1, 2` ou `3` e `valor` opcional:
+```json
+{
+  "codCliente": "1",
+  "valor": "50"
+}
+
+{
+  "codCliente": "2",
+  "valor": "100"
+}
+
+{
+  "codCliente": "3",
+  "valor": "150"
+}
+```
+
 ## Minhas considerações durante o desenvolvimento 📝
 
 #### Rodar a aplicação: 📌

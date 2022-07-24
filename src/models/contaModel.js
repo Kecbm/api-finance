@@ -54,7 +54,7 @@ const saldo = async (id) => {
 
   return {
     CodCliente: id,
-    Saldo: saldoCliente[0].saldoDisponivel,
+    Saldo: Number(saldoCliente[0].saldoDisponivel),
   };
 };
 

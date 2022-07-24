@@ -1,19 +1,19 @@
 # Boas vindas ao repositório do Desafio Técnico de Backend da Turma XP - Trybe 🚀
 
-### O que foi desenvolvido 👩‍💻
+## O que foi desenvolvido 👩‍💻
 
 Uma `API` que simula o funcionamento de uma corretora, utilizando `Node.JS` e a arquitetura MSC (**Models**, **Service** e **Controllers**).
 
-### Desenvolvimento 🎯
+## Desenvolvimento 🎯
 
 Na aplicação desenvolvida é possível **ler, escrever ou atualizar** informações sobre `compra e venda de ações`, `carteira de ações do cliente`, `código e valor de um ativo`, `depositar e sacar da conta do cliente` e `solicitar o saldo disponível da conta do cliente`. Todas as informações estão em um **banco de dados**, que foi desenvolvido e manipulado utilizando o **MySQL**.
 
-### Tecnologias utilizadas 🛠
+## Tecnologias utilizadas 🛠
 
 <img title="NodeJS" alt="NodeJS" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" /> <img title="Docker" alt="Docker" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" /> <img title="Express" alt="Express" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" /> <img title="MySQL" alt="MySQL" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
           
 
-### Instalando depedências 🔽
+## Instalando depedências 🔽
 
 ```bash
   cd psel-turma-XP
@@ -23,7 +23,7 @@ Na aplicação desenvolvida é possível **ler, escrever ou atualizar** informa�
   npm install
 ```
 
-### Executando a aplicação 🖥
+## Executando a aplicação 🖥
 
 ```bash
   cd psel-turma-XP
@@ -51,7 +51,7 @@ O comando irá inicializar um container chamado `XP_Investimentos` e outro chama
 
 `Fazer as requisições` nas rotas
 
-### Executando os testes unitários 🧪
+## Executando os testes unitários 🧪
 
 ```bash
   cd psel-turma-XP
@@ -59,6 +59,38 @@ O comando irá inicializar um container chamado `XP_Investimentos` e outro chama
 
 ```bash
   npm run test:mocha
+```
+
+## Documentação da API 📒
+
+Documentação escrita seguindo o modelo disponibilizado em [README.so](https://readme.so/pt)
+
+#### Gera o token JWT
+
+```http
+  POST /conta/login
+```
+
+| Parâmetros   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `emailCliente` e `senhaCliente` | `string` | **Obrigatórios**. Informações de login da conta do cliente |
+
+- **Teste:** Realize requisições com algum dos seguintes usuários:
+```json
+{
+  "emailCliente": "mariana@email.com",
+  "senhaCliente": "senha123"
+}
+
+{
+  "emailCliente": "ana@email.com",
+  "senhaCliente": "senha123"
+}
+
+{
+  "emailCliente": "clara@email.com",
+  "senhaCliente": "senha123"
+}
 ```
 
 ## Minhas considerações durante o desenvolvimento 📝
@@ -73,4 +105,4 @@ Focando em continuar o desenvolvimento do desafio técnico encontrei uma soluç�
 
 #### Diagrama do banco de dados: 🎲
 
-Gerei o diagrama do banco de dados no site [Diagrams.net](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwid2Z_poor5AhXjupUCHUBEBO8QFnoECAQQAQ&url=https%3A%2F%2Fwww.diagrams.net%2F&usg=AOvVaw1-h_Mns_MotizBNxF18KnX)
+Gerei o diagrama do banco de dados em [Diagrams.net](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwid2Z_poor5AhXjupUCHUBEBO8QFnoECAQQAQ&url=https%3A%2F%2Fwww.diagrams.net%2F&usg=AOvVaw1-h_Mns_MotizBNxF18KnX)

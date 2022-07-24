@@ -249,6 +249,18 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 
 - **Teste:** Realize requisições com o `codAtivo: 1`, `codAtivo: 2` ou `codAtivo: 3`
 
+#### Informações do ativo na corretora
+
+```http
+  GET /ativos/${codAtivo}
+```
+
+| Parâmetros   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `codAtivo` | `string` | **Obrigatório**. Id do ativo |
+
+- **Teste:** Realize requisições com o `codAtivo: 1`, `codAtivo: 2` ou `codAtivo: 3`
+
 ## Minhas considerações durante o desenvolvimento 📝
 
 #### Rodar a aplicação: 📌

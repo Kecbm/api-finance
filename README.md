@@ -173,6 +173,31 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 
 - **Teste:** Realize requisições com o `codCliente: 1`, `codCliente: 2` ou `codCliente: 3`
 
+#### Quantidade de ativo na carteira do cliente
+
+```http
+  POST /conta/carteira/${codCliente}
+```
+
+| Parâmetros   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `codCliente` e `codAtivo` | `string` | **Obrigatórios**. Informação da carteira do cliente |
+
+- **Teste:** Realize requisições com `codCliente: 1`, `codCliente: 2` ou `codCliente: 3`; e `codAtivo: 1`, `codAtivo: 2` ou `codAtivo: 3`:
+```json
+{
+  "codCliente": "1"
+}
+
+{
+  "codCliente": "2"
+}
+
+{
+  "codCliente": "3"
+}
+```
+
 #### Compra de ativo
 
 ```http

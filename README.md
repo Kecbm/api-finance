@@ -103,7 +103,7 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 | :---------- | :--------- | :---------------------------------- |
 | `codCliente` e `valor` | `string` | **Obrigatórios**. Informações de deposito na conta do cliente |
 
-- **Teste:** Realize requisições com o `codCliente: 1, 2` ou `3` e `valor` opcional:
+- **Teste:** Realize requisições com o `codCliente: 1`, `codCliente: 2` ou `codCliente: 3` e `valor` opcional:
 ```json
 {
   "codCliente": "1",
@@ -131,7 +131,7 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 | :---------- | :--------- | :---------------------------------- |
 | `codCliente` e `valor` | `string` | **Obrigatórios**. Informações de saque na conta do cliente |
 
-- **Teste:** Realize requisições com o `codCliente: 1, 2` ou `3` e `valor` opcional:
+- **Teste:** Realize requisições com `codCliente: 1`, `codCliente: 2` ou `codCliente: 3` e `valor` opcional:
 ```json
 {
   "codCliente": "1",
@@ -172,6 +172,38 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 | `codCliente` | `string` | **Obrigatório**. Id do cliente |
 
 - **Teste:** Realize requisições com o `codCliente: 1`, `codCliente: 2` ou `codCliente: 3`
+
+#### Compra de ativo
+
+```http
+  POST /investimentos/comprar
+```
+
+| Parâmetros   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `codCliente`, `codAtivo` e `qtdeAtivo` | `string` | **Obrigatórios**. Informações para compra de ativo |
+
+- **Teste:** Realize requisições com `codCliente: 1`, `codCliente: 2` ou `codCliente: 3`; `codAtivo: 1`, `codAtivo: 2` ou `codAtivo: 3` e `qtdeAtivo` opcional:
+```json
+{
+    "codCliente": "1",
+    "codAtivo": "1",
+    "qtdeAtivo": "3"
+}
+
+{
+    "codCliente": "2",
+    "codAtivo": "2",
+    "qtdeAtivo": "6"
+}
+
+{
+    "codCliente": "3",
+    "codAtivo": "3",
+    "qtdeAtivo": "9"
+}
+
+```
 
 ## Minhas considerações durante o desenvolvimento 📝
 

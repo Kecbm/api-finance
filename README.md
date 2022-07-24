@@ -149,6 +149,18 @@ Documentação escrita seguindo o modelo disponibilizado em [README.so](https://
 }
 ```
 
+#### Saldo disponível na conta do cliente
+
+```http
+  GET /conta/${codCliente}
+```
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `codCliente` | `string` | **Obrigatório**. Id do cliente |
+
+- **Teste:** Realize requisições com o `codCliente: 1`, `codCliente: 2` ou `codCliente: 3`
+
 ## Minhas considerações durante o desenvolvimento 📝
 
 #### Rodar a aplicação: 📌
